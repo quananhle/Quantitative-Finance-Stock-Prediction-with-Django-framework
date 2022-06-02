@@ -1,0 +1,11 @@
+Django==2.2.20
+psycopg2==2.8.4
+djangorestframework==3.11.0
+openpyxl==3.0.7
+requests==2.25.1
+gunicorn==20.0.4
+django-prometheus
+django-mathfilters
+spyne==2.14.0
+lxml==4.7.1
+contextvars==2.4
