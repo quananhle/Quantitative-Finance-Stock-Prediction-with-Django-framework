@@ -15,3 +15,17 @@ Task 4: Calculating exit multiples
 Task 5: Calculating Free Cash Flows
 
 Task 6: Calculating Enterprise Value and Equity Value
+
+Build value company's shares using DCF modeling. We will accomplish it in by completing each task in the project:
+
+Introduction to DCF
+
+Historical financials
+
+Five year forecast
+
+Calculating exit multiples
+
+Calculating Free Cash Flows
+
+Calculating Enterprise Value and Equity Value
