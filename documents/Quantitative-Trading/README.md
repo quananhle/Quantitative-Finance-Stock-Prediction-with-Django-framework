@@ -13,3 +13,5 @@ Public equity refers to stocks that can be traded on a stock exchange. Private e
 
 #### Market Bubbles
 A recent example of a bubble is bitcoin, which rose from from under $1,000 per coin in January of 2017, to over $17,000 per coin by December of the same year, before dropping to about $6,000 by June of 2018.
+
+### How many trading days are there in a typical year for NYSE? 251 days
