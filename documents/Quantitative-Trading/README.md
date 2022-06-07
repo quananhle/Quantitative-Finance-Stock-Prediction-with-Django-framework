@@ -150,3 +150,10 @@ $ = \ln(p_{\mathrm{Mar\;1}}) - \ln(p_{\mathrm{Jan\;1}}) $
 $ = \ln \left( \frac{p_{\mathrm{Mar\;1}}}{p_{\mathrm{Jan\;1}}} \right) $
 
 $\=$ $\log$ return for January and $\log$ return for February
+
+Since the annual rate of continuous compounding, 0.24, is simply the sum of the monthly rates of continuous compounding, we say that the continuously compounded rate of return is _additive over time_.
+
+Numerical Stability
+Multiplication of many small numbers can result in the problem that the product is smaller than the smallest number representable in computer memory. Sometimes the computation will incorrectly yield the value 0. This is called arithmetic underflow. The use of logarithms can help with this, since it enables the representation of much smaller (and much larger) numbers. For example:
+
+![image](https://user-images.githubusercontent.com/35042430/172473901-891fd5f9-8fee-40f3-a5c2-f5f5b6a15788.png)
