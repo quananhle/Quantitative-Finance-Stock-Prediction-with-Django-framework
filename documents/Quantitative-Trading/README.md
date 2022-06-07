@@ -86,4 +86,24 @@ Let's compare the amount of money accumulated after 1 year with the same annual 
 | Weekly (n=52)                 | $104.08                        |
 | Daily (n=252)                 | $104.08                        |
      
+Looking at the table, you can see that with more frequent compounding, the value at 1 year increases but then seems to level off. If you assumed that the benefit of compounding more and more frequently had a limit, you would be right! How do we calculate this limit? Well, first we write down the formula for compounding,
 
+$p_{t} = p_{t-1}(1 + \frac{r}{n})^np$
+
+and then we notice that what we'd like to do is make n bigger and bigger. We want the limit as n goes to infinity. Well, it turns out that this limit is:
+
+$\lim_{n\to\infty}\left( 1 + \frac{r}{n}\right)^n = \mathrm{e}^rlim$
+
+Compounding infinitely often is called continuous compounding. So what does this mean? Well, it means that if you wanted to calculate how much money you’d have at the end of the year if you started with $100 and compounded continuously, but at a simple annual rate of 4%, you’d calculate:
+
+$100 \times \mathrm{e}^{.04} = 104.08$
+
+You'll notice that the value after 1 year with continuous compounding is pretty close (it's the same if we round to two decimal places) to the value after 1 year with daily compounding.
+
+#### Continuously Compounded Return
+
+Now, say you were trying to reverse the previous calculation. Say you knew you had $104.08 at the end of the year, and $100 at the beginning of the year, and you wanted to calculate the rate of interest as if it had been compounded continuously. You would simply invert the formula. So you’d calculate:
+
+104.08 $\div$ 100 $= \mathrm{e}^r$104.08/$100=e $
+
+Then you'd take the natural log of both sides, and then you'd have,
