@@ -132,3 +132,21 @@ Equivalently,
 $100 \times \mathrm{e}^{.24} = 127.12$
 
 Since the annual rate of continuous compounding, 0.24, is simply the sum of the monthly rates of continuous compounding, we say that the continuously compounded rate of return is additive over time.
+
+#### Annualized Rate of Return
+We saw above how to calculate the annual rate of continuous compounding from the monthly rate of continuous compounding. If we just had a single monthly rate, but we assumed that the rates for all the months of the year were the same, we could extrapolate the monthly rate to an annual rate by multiplying by 12. This is called annualizing the rate of continuous compounding. Rates of return and other metrics are often converted to a common annual basis in order to make comparisons across contexts and instruments.
+
+#### Time Additivity of Log Returns
+So, as you can see, the rate of continuous compounding is additive over time. Since, mathematically, the rate of continuous compounding is just the log return, this means that log returns are additive over time, and this can be very convenient. As another example,
+
+$\log$ return for January $+$ $\log$ return for February
+
+$ = \ln \left( \frac{p_{\mathrm{Feb\;1}}}{p_{\mathrm{Jan\;1}}} \right) + \ln \left( \frac{p_{\mathrm{Mar\;1}}}{p_{\mathrm{Feb\;1}}} \right) $
+
+$ = \ln(p_{\mathrm{Feb\;1}}) - \ln(p_{\mathrm{Jan\;1}}) + \ln(p_{\mathrm{Mar\;1}}) - \ln(p_{\mathrm{Feb\;1}}) $
+
+$ = \ln(p_{\mathrm{Mar\;1}}) - \ln(p_{\mathrm{Jan\;1}}) $
+
+$ = \ln \left( \frac{p_{\mathrm{Mar\;1}}}{p_{\mathrm{Jan\;1}}} \right) $
+
+$\=$ $\log$ return for January and $\log$ return for February
