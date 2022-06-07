@@ -79,12 +79,12 @@ Let's compare the amount of money accumulated after 1 year with the same annual 
 
 | __Compounding frequency__     | __Value of $100 after 1 year__ |
 | -----------                   | -----------                    |
-| Annually (n=1)                | $104.00                        |
-| Semi-annually (n=2)           | $104.04                        |
-| Quarterly (n=4)               | $104.06                        |
-| Monthly (n=12)                | $104.07                        |
-| Weekly (n=52)                 | $104.08                        |
-| Daily (n=252)                 | $104.08                        |
+| Annually ($n=1$)              | $104.00                        |
+| Semi-annually ($n=2$)         | $104.04                        |
+| Quarterly ($n=4$)             | $104.06                        |
+| Monthly ($n=12$)              | $104.07                        |
+| Weekly ($n=52$)               | $104.08                        |
+| Daily ($n=252$)               | $104.08                        |
      
 Looking at the table, you can see that with more frequent compounding, the value at 1 year increases but then seems to level off. If you assumed that the benefit of compounding more and more frequently had a limit, you would be right! How do we calculate this limit? Well, first we write down the formula for compounding,
 
