@@ -58,3 +58,16 @@ Note also that a low PE ratio can also be due to different underlying reasons. A
 In practice, you’ll want to see how a company’s PE ratio compares to other similar companies in the same industry and same geographic region.
 
 You’ll see PE ratios again in later lessons, so for now, just remember that it’s one of many ways to take a snapshot of a company’s financial health.
+
+### Rates of Compounding
+A statement by a bank that the interest rate on one-year deposits is 4% per year sounds straightforward and unambiguous. In fact, its precise meaning depends on the way the interest rate is measured. For an interest rate statement to be clear, the magnitude and time dependence of the rate of interest, as well as the frequency of compounding, must be clearly stated.
+
+If the interest rate is measured with annual compounding, the bank’s statement that the interest rate is 4% means that $100 grows to \$100 \prod (1 + .04) = \$104$100×(1+.04)=$104 at the end of 1 year.
+
+When the interest rate is measured with semiannual compounding, it means that 2% is earned every 6 months, with the interest being reinvested. In this case, $100 grows to \$100\times(1 + .04/2)\times(1 + .04/2) = \$100\times(1 + .04/2)^2 = \$104.04$100×(1+.04/2)×(1+.04/2)=$100×(1+.04/2) 
+2
+ =$104.04, at the end of 1 year.
+
+When the interest rate is measured with quarterly compounding, the bank’s statement means that 1% is earned every 3 months, with the interest being reinvested. The $100 then grows to \$100\times(1 + .04/4)^4 = \$104.06$100×(1+.04/4) 
+4
+ =$104.06 at the end of 1 year.
