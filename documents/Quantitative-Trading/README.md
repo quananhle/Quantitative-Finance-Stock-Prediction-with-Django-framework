@@ -121,7 +121,7 @@ $100 \times \mathrm{e}^{.02} = 102.02$
 
 But if the investment continued to accrue at a monthly continuously compounded rate of 0.02 for a whole year, we’d have
 
-$ 100 \times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}$ ... in total, 12 factors of $\mathrm{e}^{.02}e$. 
+$ 100 \times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}$ ... in total, 12 factors of $\mathrm{e}^{.02}$. 
 
 So we'd have
 
