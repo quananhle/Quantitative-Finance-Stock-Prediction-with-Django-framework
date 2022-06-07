@@ -59,7 +59,10 @@ In practice, you’ll want to see how a company’s PE ratio compares to other s
 
 You’ll see PE ratios again in later lessons, so for now, just remember that it’s one of many ways to take a snapshot of a company’s financial health.
 
-### Rates of Compounding
+### Compoundings
+
+#### Rates of Compounding
+
 A statement by a bank that the interest rate on one-year deposits is 4% per year sounds straightforward and unambiguous. In fact, its precise meaning depends on the way the interest rate is measured. For an interest rate statement to be clear, the magnitude and time dependence of the rate of interest, as well as the frequency of compounding, must be clearly stated.
 
 If the interest rate is measured with annual compounding, the bank’s statement that the interest rate is 4% means that $100 grows to 
@@ -70,3 +73,17 @@ When the interest rate is measured with semi-annual compounding, it means that 2
 
 When the interest rate is measured with quarterly compounding, the bank’s statement means that 1% is earned every 3 months, with the interest being reinvested. The $100 then grows to 
 100 $\times$ (1 $\+$ .04 $\div$ 4)<sup>4</sup> = \$104.06 at the end of 1 year.
+
+#### Continuous Compounding
+Let's compare the amount of money accumulated after 1 year with the same annual rate of interest of 4%, but different rates of compounding:
+
+| __Compounding frequency__     | __Value of $100 after 1 year__ |
+| -----------                   | -----------                    |
+| Annually (n=1)                | $104.00                        |
+| Semi-annually (n=2)           | $104.04                        |
+| Quarterly (n=4)               | $104.06                        |
+| Monthly (n=12)                | $104.07                        |
+| Weekly (n=52)                 | $104.08                        |
+| Daily (n=252)                 | $104.08                        |
+     
+
