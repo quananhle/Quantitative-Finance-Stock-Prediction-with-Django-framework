@@ -102,8 +102,33 @@ You'll notice that the value after 1 year with continuous compounding is pretty 
 
 #### Continuously Compounded Return
 
-Now, say you were trying to reverse the previous calculation. Say you knew you had $104.08 at the end of the year, and $100 at the beginning of the year, and you wanted to calculate the rate of interest as if it had been compounded continuously. You would simply invert the formula. So you’d calculate:
-
+Now, say you were trying to reverse the previous calculation. Say you knew you had $104.08 at the end of the year, and $100 at the beginning of the year, and you wanted to calculate the rate of interest as _if it had been compounded continuously_. You would simply invert the formula. So you’d calculate:
 104.08 $\div$ 100 $= \mathrm{e}^r$104.08/$100=e $
 
 Then you'd take the natural log of both sides, and then you'd have,
+$\ln$(104.08 $\div$ 100) $=r$
+
+So,
+$.04 = r$
+
+r is the _continuously compounded annual return_. So the continuously compounded annual return equals 
+$\ln(p_t/p_{t-1})$.
+But what is this quantity? It’s just the log return! This is why you might hear log returns called _continuously compounded returns_.
+
+#### Additivity
+Now, say we invested \$100, and the monthly continuously compounded interest rate was 2%. At the end of the month, we’d have
+$100 \times \mathrm{e}^{.02} = 102.02$
+
+But if the investment continued to accrue at a monthly continuously compounded rate of 0.02 for a whole year, we’d have
+
+$ 100 \times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}\times \mathrm{e}^{.02}$ ... in total, 12 factors of $\mathrm{e}^{.02}e$. 
+
+So we'd have
+
+$ 100 \times (\mathrm{e}^{.02*12}) = 127.12$
+
+Equivalently,
+
+$100 \times \mathrm{e}^{.24} = 127.12$
+
+Since the annual rate of continuous compounding, 0.24, is simply the sum of the monthly rates of continuous compounding, we say that the continuously compounded rate of return is additive over time.
