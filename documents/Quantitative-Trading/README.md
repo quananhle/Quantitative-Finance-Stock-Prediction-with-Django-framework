@@ -157,3 +157,11 @@ Numerical Stability
 Multiplication of many small numbers can result in the problem that the product is smaller than the smallest number representable in computer memory. Sometimes the computation will incorrectly yield the value 0. This is called arithmetic underflow. The use of logarithms can help with this, since it enables the representation of much smaller (and much larger) numbers. For example:
 
 ![image](https://user-images.githubusercontent.com/35042430/172473901-891fd5f9-8fee-40f3-a5c2-f5f5b6a15788.png)
+
+### Distributions of Returns and Prices
+
+#### Distributions of Returns and Prices
+Investors are always interested in the potential appreciation or depreciation of financial assets. They'd like to be able to predict what will happen to assets in the future, hence, they'd like to be able to build models of stock prices and returns. An important first step is to think of these prices and returns as random variables, i.e. outcomes of random phenomena, that take on values as described by distributions. Distributions allow us to summarize the behavior of random variables. So, what are the distributions of returns and prices?
+
+One strategy for getting a sense of potential future behavior is to look to the past. Let's look at some data from the stock of a familiar company with a storied past, Apple Inc.
+
