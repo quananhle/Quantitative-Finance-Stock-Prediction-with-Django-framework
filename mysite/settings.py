@@ -32,6 +32,12 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+'''
+Username: admin
+Email: qle2@hawk.iit.edu
+Password: Dogecoin
+'''
+
 INSTALLED_APPS = [
     'stock.apps.StocksConfig',
     'django.contrib.admin',
