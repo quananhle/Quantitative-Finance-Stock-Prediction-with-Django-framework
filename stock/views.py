@@ -4,6 +4,10 @@ from django.http import HttpResponse
 # Create your views here.
 def index (request):
     template_name = 'stock.html'
+    # context = {}
+    # context.update({                
+    #     'object_type': "Hello World! This is a finance application about quantitative trading and stock! Test Version Control"
+    # })
 
     def get(self, *args, **kwargs):
         context = {}
@@ -12,3 +16,5 @@ def index (request):
         })
         return render(self.request, self.template_name, context)
         # return HttpResponse (context['object_type'])
+
+    return render(request, template_name)
