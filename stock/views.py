@@ -26,5 +26,3 @@ class StockPriceCalculator (LoginRequiredMixin, View):
         })
         return render(self.request, self.template_name, context)
         # return HttpResponse (context['object_type'])
-
-    return render(request, template_name)
