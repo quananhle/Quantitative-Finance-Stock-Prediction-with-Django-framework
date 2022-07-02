@@ -30,20 +30,22 @@ class StockPriceCalculator (View):
                 return self.get()
 
     def get(self, *args, **kwargs):
+        error = {}
         context = {}
         db_obj = DataLayer()
         db_conn = db_obj.connect()
 
         if db_conn is None:
-            context.update(
+            error.update(
                 { 'errorMsg': 'There is a problem with Database connection, Call IT' } 
             ) 
-            return render(self.request, self.template_name, context) 
+            return render(self.request, self.template_name, error) 
 
-        sp_params = DataLayer().createparams(f"{('APPL','GOOG','TSLA','AMD','NVDA')}")
-        model_manager_info = DataLayer().runfunction(db_conn,'mfg_model_manager_update_fn', sp_params)
+        sp_params = DataLayer().createparams(f"{''}")
+        stock_get_info_result = DataLayer().runfunction(db_conn,'main_stock_get_info_fn', sp_params)
+        # print (stock_get_info_result)
 
-        context.update({                
-            'object_type': "Hello World! This is a finance application about quantitative trading and stock! Test Version Control"
+        context.update({
+            'stock_info': stock_get_info_result
         })
         return render(self.request, self.template_name, context)
