@@ -65,15 +65,13 @@ class StockPriceCalculator (View):
             stock_list[2].append(stock_get_info_result[i][2])
             stock_list[3].append(stock_get_info_result[i][3])
         '''
-        
+
         stock_dict = {'company':[], 'id':[], 'symbol':[], 'business_type':[]}
         for i in range (len(stock_get_info_result)):
             stock_dict['company'].append(stock_get_info_result[i][0])
             stock_dict['id'].append(stock_get_info_result[i][1])
             stock_dict['symbol'].append(stock_get_info_result[i][2])
             stock_dict['business_type'].append(stock_get_info_result[i][3])
-        print (stock_dict)
-        # print ("Stock: ", stock_list)
 
         context.update({
             'stock_info': stock_get_info_result
