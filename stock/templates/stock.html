@@ -4,26 +4,50 @@
 
 <!doctype html>
 <html lang="en">
-  <main class="page-content">
-    <div class="container-fluid">
-      <head>
-        <div>
-          <header>Quantitative Finance</header>
+    <main class="page-content">
+        <div class="container-fluid">
+            <head>
+                <div>
+                    <header>Quantitative Finance</header>
+                </div>
+            </head>
+            <body>
+                <div>
+                    This is a finance application about quantitative trading and stock!
+                </div>
+                {% if stock_info %}
+                <div id="stock-info-section">
+                    <table class="table table-hover tbl-font table-striped table-bordered table-sm align-act-buttons" id="stock-company-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Company      </th>
+                                <th scope="col">Tax ID       </th>
+                                <th scope="col">Stock Symbol </th>
+                                <th scope="col">Business Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {{ company  }}</td>
+                                <td> {{ id       }}</td>
+                                <td> {{ symbol   }}</td>
+                                <td> {{ business }}</td>
+                            </tr>                                   
+                        </tbody>
+                    </table> 
+                </div>
+                {% endif %} 
+            </body>
+            <footer class="text-center">
+                <div class="mb-2">
+                    <small id='footer'>© 2021 Fii HOU SWD</small>
+                </div>
+            </footer>
         </div>
-      </head>
-      <body>
-        <div>
-            Hello World! This is a finance application about quantitative trading and stock!
-        </div>
-        <div id="stock-info-section"></div>
-      </body>
-    </div>
-    <footer class="text-center">
-      <div class="mb-2">
-          <small id='footer'>© 2021 Fii HOU SWD</small>
-      </div>
-  </footer>
-  </main>
+    </main>
 </html>
 <script src="{% static 'apps/price_calculator/priceCalculator.js' %}"></script>
-{% endblock content %}  
+<script type="text/javascript">
+    $("#footer").html('© ' + new Date().getFullYear() + ' Fii HOU SWD');
+</script>  
+{% endblock content %}
