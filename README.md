@@ -10,3 +10,4 @@ Admin
 
 Stock
 
+![image](https://user-images.githubusercontent.com/35042430/177018357-1e9fe6c5-72a9-44ee-9223-fc9d54ebf701.png)
