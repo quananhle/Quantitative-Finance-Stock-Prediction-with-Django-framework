@@ -1,11 +1,18 @@
+{% block content %}
+{% load static %}
+
 <!doctype html>
 <html lang="en">
-  <head> 
-    <header>Quantitative Finance</header>
+  <head>
+    <div>
+      <header>Quantitative Finance</header>
+    </div>
   </head>
-  <body> 
-  {% block content %}
-    Hello World! This is a finance application about quantitative trading and stock!
-  {% endblock content %}  
+  <body>
+    <div>
+        Hello World! This is a finance application about quantitative trading and stock!
+    </div>
   </body>
 </html>
+
+{% endblock content %}  
