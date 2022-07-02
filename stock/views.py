@@ -7,7 +7,7 @@ from srv.database.db_actions import *
 
 
 # Create your views here.
-class StockPriceCalculator (LoginRequiredMixin, View):
+class StockPriceCalculator (View):
     template_name = 'stock.html'
 
     def get(self, *args, **kwargs):
@@ -25,4 +25,3 @@ class StockPriceCalculator (LoginRequiredMixin, View):
             'object_type': "Hello World! This is a finance application about quantitative trading and stock! Test Version Control"
         })
         return render(self.request, self.template_name, context)
-        # return HttpResponse (context['object_type'])

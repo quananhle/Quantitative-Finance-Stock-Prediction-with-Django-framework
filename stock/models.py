@@ -54,20 +54,32 @@ class StockMarket(models.Model):
     ship_to_name = models.CharField(max_length=255, null=True, blank=True)
     service_level = models.CharField(max_length=255, null=True, blank=True)
 
-
     def __str__(self):
         return self.salesorder_id
 
-class FinancialStatement(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class Company(models.Model):
+    row_id = models.AutoField(auto_created=True, primary_key=True)
+    company_id = models.CharField(max_length=50)
+    company_name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return str(self.company_name)
 
 class Quote(models.Model):
-    question = models.ForeignKey(FinancialStatement, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    row_id = models.AutoField(auto_created=True, primary_key=True)
+    quote = models.CharField(max_length=500)
+    author = models.CharField(max_length=200)
+    source = models.CharField(max_length=200)
 
-class Company(models.Model):
-    company_id = models.CharField(max_length=50, primary_key=True)
-    company_name = models.CharField(max_length=255)
+    def __str__(self):
+        return str(self.quote)
+
+class FinancialStatement(models.Model):
+    row_id = models.AutoField(auto_created=True, primary_key=True)
+    company_id = models.ForeignKey('Company', db_column='company_id', on_delete=models.CASCADE, null=False, related_name="cid")
+    company_name = models.ForeignKey('Company', db_column='company_name', on_delete=models.CASCADE, null=False, related_name="cname", default='')
+    financial_statement = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return str(self.financial_statement)
