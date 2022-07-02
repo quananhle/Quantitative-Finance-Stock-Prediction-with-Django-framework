@@ -1,18 +1,28 @@
+{% extends 'main/index.html' %}
 {% block content %}
 {% load static %}
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <div>
-      <header>Quantitative Finance</header>
+  <main class="page-content">
+    <div class="container-fluid">
+      <head>
+        <div>
+          <header>Quantitative Finance</header>
+        </div>
+      </head>
+      <body>
+        <div>
+            Hello World! This is a finance application about quantitative trading and stock!
+        </div>
+      </body>
     </div>
-  </head>
-  <body>
-    <div>
-        Hello World! This is a finance application about quantitative trading and stock!
-    </div>
-  </body>
+    <footer class="text-center">
+      <div class="mb-2">
+          <small id='footer'>© 2021 Fii HOU SWD</small>
+      </div>
+  </footer>
+  </main>
 </html>
-
+<script src="{% static 'apps/price_calculator/priceCalculator.js' %}"></script>
 {% endblock content %}  
