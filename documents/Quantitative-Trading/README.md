@@ -3,8 +3,8 @@
 ## Menu
 
 * [Stock Prices](#stock-prices)
- 	* [Stocks](#Stocks)
-	* [Options: calls, puts, American, European](#Options: calls, puts, American, European)
+ 	* [Stocks](#stocks)
+	* [Options: calls, puts, American, European](#options_calls,_puts,_American,_European)
 		* [Frontend](#frontend)
 		* [Datalayer](#datalayer)
 		* [Backend](#backend)
