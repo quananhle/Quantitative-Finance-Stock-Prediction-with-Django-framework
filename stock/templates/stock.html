@@ -11,9 +11,21 @@
                     <header>Quantitative Finance</header>
                 </div>
             </head>
-            <body>
+            <body class="row">
                 <div>
                     This is a finance application about quantitative trading and stock!
+                </div>
+                <div class="col-md-5" style="display:flex; white-space:nowrap; align-items: center;">
+                    <h3 for="sn_input" style="font-size: 18px; margin-right:20px; margin-top: 5px;"><b>Stock Symbol: </b></h3>
+                    <input type="text" class="form-control" id="sn_input" placeholder="Enter Stock Symbol">
+                    <input type="hidden" class="form-control" id="station_id" value="{{ station_id }}">
+                    <div class="form-group col-md-0.5">
+                        <div class="loader form-group mx-sm-2 mb-1" id="spinner"></div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputMaskRule">Stock Symbol</label>
+                    <input type="text" style="color: #000000;" class="form-control" id="inputMaskRule" placeholder="Enter Stock Symbol Here">
                 </div>
                 {% if stock_info %}
                 <div id="stock-info-section">
@@ -32,7 +44,7 @@
                                 <td> {{ id       }}</td>
                                 <td> {{ symbol   }}</td>
                                 <td> {{ business }}</td>
-                            </tr>                                   
+                            </tr>
                         </tbody>
                     </table> 
                 </div>
