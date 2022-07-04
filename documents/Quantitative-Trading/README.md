@@ -4,7 +4,7 @@
 
 * [Stock Prices](#stock-prices)
  	* [Stocks](#Stocks)
-	* [Req Analysis (IT Assessment)](#req-analysis-IT-assessment)
+	* [Options: calls, puts, American, European](#Options: calls, puts, American, European)
 		* [Frontend](#frontend)
 		* [Datalayer](#datalayer)
 		* [Backend](#backend)
