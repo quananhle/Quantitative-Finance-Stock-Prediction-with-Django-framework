@@ -1,10 +1,10 @@
 # Quantitative Trading
 
-## Menu
+## Table of Contents
 
-* [Stock Prices](#stock-prices)
- 	* [Stocks](#stocks)
-	* [Options: calls, puts, American, European](#options_calls_puts_American_European)
+* [Stock Prices](##stock-prices)
+ 	* [Stocks](###stocks)
+	* [Options: calls, puts, American, European](###options_calls_puts_American_European)
 		* [Frontend](#frontend)
 		* [Datalayer](#datalayer)
 		* [Backend](#backend)
