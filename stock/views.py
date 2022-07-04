@@ -81,3 +81,12 @@ class StockPriceCalculator (View):
             'business' : stock_dict['business_type']
         })
         return render(self.request, self.template_name, context)
+
+    def post(self, *args, **kwargs):
+        error = {}
+        context = {}
+        db_obj = DataLayer()
+        db_conn = db_obj.connect()
+        
+        return render(self.request, self.template_name, context)
+
