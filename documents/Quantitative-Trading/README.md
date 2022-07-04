@@ -4,7 +4,7 @@
 
 * [Stock Prices](#stock-prices)
  	* [Stocks](#stocks)
-	* [Options: calls, puts, American, European](#options_:_calls,_puts,_American,_European)
+	* [Options: calls, puts, American, European](#options:_calls,_puts,_American,_European)
 		* [Frontend](#frontend)
 		* [Datalayer](#datalayer)
 		* [Backend](#backend)
