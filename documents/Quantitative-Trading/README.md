@@ -3,28 +3,28 @@
 ## Table of Contents
 
 * [Stock Prices](#stock-prices)
- 	* [Stocks](#stocks)
-	* [Options: calls, puts, American, European](#options_calls_puts_american_european)
-		* [Frontend](#frontend)
-		* [Datalayer](#datalayer)
-		* [Backend](#backend)
-	* [Low Level Design](#low-level-design)
-* [Requirement](#requirement)
-	* [Change Request (Document)](#change-request-document)
-	* [Req Analysis (IT Assessment)](#req-analysis-IT-assessment)
-		* [Frontend](#frontend)
-		* [Datalayer](#datalayer)
-		* [Backend](#backend)
-	* [Low Level Design](#low-level-design)
-* [Changes](#changes)
-	* [Change Summary](#change-summary)
-		* [Back-end](#back-end)
-		* [Front-end](#front-end)
-		* [Database](#database)
-	* [Change Details](#change-details)
-* [Testing](#testing)
-	* [Summary](#summary)
-	* [Cases](#cases)
+	* [Stocks](#stocks)
+		* [Options: calls, puts, American, European](#options-calls-puts-american-european)
+		* [Forwards and Futures](#forwards-and-futures)
+		* [Public versus private equity](#public-versus-private-equity)
+		* [Market Bubbles](#market-bubbles)
+		* [How many trading days are there in a typical year for NYSE?](#how-many-trading-days-are-there-in-a-typical-year-for-NYSE)
+	* [Fundamental Information](#fundamental-information)
+	 	* [Fundamental Analysis](#fundamental-analysis)
+		* [Sales Per Share](#sales-per-share)
+		* [Earnings Per Share](#earnings-per-share)
+		* [Dividends Per Share](#dividends-per-share)
+	* [Price Earnings Ratio](#price-earnings-ratio)
+	 	* [Price to Earnings Ratio](#price-to-earnings-ratio)
+	* [Compoundings](#compoundings)
+		* [Rates of Compounding](#rates-of-compounding)
+		* [Continuous Compounding](#continuous-compounding)
+		* [Continuously Compounded Return](#continuously-compounded-return)
+		* [Annualized Rate of Return](#annualized-rate-of-return)
+		* [Time Additivity of Log Returns](#time-additivity-of-log-returns)
+		* [Numerical Stability](#numerical-stability)
+	* [Distributions of Returns and Prices](#distributions-of-returns-and-prices)
+	* [Returns](#returns)
 
 ## Stock Prices
 
@@ -179,7 +179,7 @@ $\=$ $\log$ return for January and $\log$ return for February
 
 Since the annual rate of continuous compounding, 0.24, is simply the sum of the monthly rates of continuous compounding, we say that the continuously compounded rate of return is _additive over time_.
 
-__Numerical Stability__
+#### Numerical Stability
 Multiplication of many small numbers can result in the problem that the product is smaller than the smallest number representable in computer memory. Sometimes the computation will incorrectly yield the value 0. This is called arithmetic underflow. The use of logarithms can help with this, since it enables the representation of much smaller (and much larger) numbers. For example:
 
 ![image](https://user-images.githubusercontent.com/35042430/172473901-891fd5f9-8fee-40f3-a5c2-f5f5b6a15788.png)
