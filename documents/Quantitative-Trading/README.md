@@ -165,3 +165,15 @@ Investors are always interested in the potential appreciation or depreciation of
 
 One strategy for getting a sense of potential future behavior is to look to the past. Let's look at some data from the stock of a familiar company with a storied past, Apple Inc.
 
+
+### Returns
+The raw return may be referred to simply as the _return_, or alternatively, as the _percentage return_, _linear return_, or _simple return_. It is defined as
+
+$ r = \frac{p_t - p_{t-1}}{p_{t-1}} $
+
+![image](https://user-images.githubusercontent.com/35042430/177209254-f7f8874d-32e1-462b-90c1-6d6d1ecdaa90.png)
+
+![image](https://user-images.githubusercontent.com/35042430/177209295-d0acf722-3bd1-4bb0-aace-7a1f38c67dc0.png)
+
+
+
