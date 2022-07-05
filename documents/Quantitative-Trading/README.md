@@ -1,5 +1,31 @@
 # Quantitative Trading
 
+## Table of Contents
+
+* [Stock Prices](#stock-prices)
+	* [Stocks](#stocks)
+		* [Options: calls, puts, American, European](#options-calls-puts-american-european)
+		* [Forwards and Futures](#forwards-and-futures)
+		* [Public versus private equity](#public-versus-private-equity)
+		* [Market Bubbles](#market-bubbles)
+		* [How many trading days are there in a typical year for NYSE?](#how-many-trading-days-are-there-in-a-typical-year-for-NYSE)
+	* [Fundamental Information](#fundamental-information)
+	 	* [Fundamental Analysis](#fundamental-analysis)
+		* [Sales Per Share](#sales-per-share)
+		* [Earnings Per Share](#earnings-per-share)
+		* [Dividends Per Share](#dividends-per-share)
+	* [Price Earnings Ratio](#price-earnings-ratio)
+	 	* [Price to Earnings Ratio](#price-to-earnings-ratio)
+	* [Compoundings](#compoundings)
+		* [Rates of Compounding](#rates-of-compounding)
+		* [Continuous Compounding](#continuous-compounding)
+		* [Continuously Compounded Return](#continuously-compounded-return)
+		* [Annualized Rate of Return](#annualized-rate-of-return)
+		* [Time Additivity of Log Returns](#time-additivity-of-log-returns)
+		* [Numerical Stability](#numerical-stability)
+	* [Distributions of Returns and Prices](#distributions-of-returns-and-prices)
+	* [Returns](#returns)
+
 ## Stock Prices
 
 ### Stocks
@@ -103,10 +129,10 @@ You'll notice that the value after 1 year with continuous compounding is pretty 
 #### Continuously Compounded Return
 
 Now, say you were trying to reverse the previous calculation. Say you knew you had $104.08 at the end of the year, and $100 at the beginning of the year, and you wanted to calculate the rate of interest as _if it had been compounded continuously_. You would simply invert the formula. So you’d calculate:
-104.08 $\div$ 100 $= \mathrm{e}^r$104.08/$100=e $
+$ 104.08 \div 100 = \mathrm{e}^r $
 
 Then you'd take the natural log of both sides, and then you'd have,
-$\ln$(104.08 $\div$ 100) $=r$
+$\ln(104.08 \div 100) $=r
 
 So,
 $.04 = r$
@@ -153,7 +179,7 @@ $\=$ $\log$ return for January and $\log$ return for February
 
 Since the annual rate of continuous compounding, 0.24, is simply the sum of the monthly rates of continuous compounding, we say that the continuously compounded rate of return is _additive over time_.
 
-Numerical Stability
+#### Numerical Stability
 Multiplication of many small numbers can result in the problem that the product is smaller than the smallest number representable in computer memory. Sometimes the computation will incorrectly yield the value 0. This is called arithmetic underflow. The use of logarithms can help with this, since it enables the representation of much smaller (and much larger) numbers. For example:
 
 ![image](https://user-images.githubusercontent.com/35042430/172473901-891fd5f9-8fee-40f3-a5c2-f5f5b6a15788.png)
@@ -164,4 +190,16 @@ Multiplication of many small numbers can result in the problem that the product 
 Investors are always interested in the potential appreciation or depreciation of financial assets. They'd like to be able to predict what will happen to assets in the future, hence, they'd like to be able to build models of stock prices and returns. An important first step is to think of these prices and returns as random variables, i.e. outcomes of random phenomena, that take on values as described by distributions. Distributions allow us to summarize the behavior of random variables. So, what are the distributions of returns and prices?
 
 One strategy for getting a sense of potential future behavior is to look to the past. Let's look at some data from the stock of a familiar company with a storied past, Apple Inc.
+
+
+### Returns
+The raw return may be referred to simply as the _return_, or alternatively, as the _percentage return_, _linear return_, or _simple return_. It is defined as
+
+$ r = \frac{p_t - p_{t-1}}{p_{t-1}} $
+
+![image](https://user-images.githubusercontent.com/35042430/177209254-f7f8874d-32e1-462b-90c1-6d6d1ecdaa90.png)
+
+![image](https://user-images.githubusercontent.com/35042430/177209295-d0acf722-3bd1-4bb0-aace-7a1f38c67dc0.png)
+
+
 
