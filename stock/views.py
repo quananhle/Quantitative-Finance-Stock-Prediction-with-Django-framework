@@ -87,6 +87,20 @@ class StockPriceCalculator (View):
         context = {}
         db_obj = DataLayer()
         db_conn = db_obj.connect()
-        
+
+        if db_conn is None:
+            error.update(
+                { 'errorMsg': 'There is a problem with Database connection, Call IT' } 
+            ) 
+            return render(self.request, self.template_name, error) 
+
+        sp_params = DataLayer().createparams(f"{''}")
+        stock_get_prices_result = DataLayer().runfunction(db_conn,'input_stock_get_prices', sp_params)
+        print (stock_get_prices_result)
+
+        context.update({
+            'stock_prices' : stock_get_prices_result
+        })
+
         return render(self.request, self.template_name, context)
 
