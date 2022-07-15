@@ -54,10 +54,9 @@
                     </table> 
                 </div>
                 {% endif %}
-                <div  method="POST">
+                <div method="POST">
                     <header><h2>Main Data</h2></header>
                     <div class="form-row">
-                        {% csrf_token %} 
                         <!-- <div class="form-group col-md-4">
                             <label for="inputKeypart">Keypart</label>
                             <select class="form-control" style="color: #000000;" id="inputKeypart" name="inputKeypart">
@@ -71,12 +70,12 @@
                             <input type="text" style="color: #000000;" class="form-control" id="input_stock_symbol" placeholder="Enter Stock Symbol Here">
                         </div>
                         <div class="form-group col-md-1">
-                            <label for="input_start_date">Start date:</label>
-                            <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_start_date">
+                            <label for="start-date">Start date:</label>
+                            <input type="date" name="start-date" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_start_date">
                         </div>
                         <div class="form-group col-md-1">
-                            <label for="input_end_date">End date:</label>
-                            <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_end_date">
+                            <label for="end-date">End date:</label>
+                            <input type="date" name="end-date" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_end_date">
                         </div>
                         <div class="form-group col-md-6" style="margin-top: 25px">
                             <button type="submit" class="btn btn-primary" id="submit_button" style="background-color: #00CC00;">Submit</button> 
@@ -110,11 +109,34 @@
                 <div class="col-md-12 " style="height: 0.5cm; visibility: hidden;"></div>
                 <!-- <hr style="border: 0; width:75%; height: 1px;  background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);"> -->
                 <hr style="border: 0; height: 2px; width:90%; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
-                <div class="col-md-12 " style="height: 0.5cm; visibility: hidden;"></div>               
+                <div class="col-md-12 " style="height: 0.5cm; visibility: hidden;"></div>        
+                    <div class="form-row">
+                        <div class="col-md-1 form-group" style="margin-top: 10pt;">
+                            <div class="loader form-group mx-sm-2 mb-1" id="spinner"></div> 
+                        </div>
+                        <div class="col-md-8' align-self-center">   
+                            <div  id="errorMsgModal" class="w-100 p-1" >
+                                {% if errorMsg  %}                                  
+                                    <div class="alert alert-danger" role="alert" style="margin: 0;">          
+                                        <p class="mb-0" id="errorMsg">{{ errorMsg }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>  
+                            <div  id="successMsgModal" class="w-100 p-1" >
+                                {% if successMsg  %}                                  
+                                    <div class="alert alert-danger" role="alert" style="margin: 0;">          
+                                        <p class="mb-0" id="successMsg">{{ successMsg }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>  
+                        </div> 
+                    </div>
+                </div>
             </body>
+
             <footer class="text-center">
                 <div class="mb-2">
-                    <small id='footer'>© 2021</small>
+                    <small id='footer'>© 2022</small>
                 </div>
             </footer>
         </div>
@@ -171,8 +193,9 @@
     //     }
     // });
     $("#submit_button").click(function(event) {
+        console.log("Drop-down selected!");
         event.preventDefault();
-        stock.loadData();
+        stock.updateButton();
     });
     // $("#confirm-button").click(function(event) {
     //     console.log("Confirm Button pressed!");
