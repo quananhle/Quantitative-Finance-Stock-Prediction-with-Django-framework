@@ -4,6 +4,8 @@ console.log(tkn);
 
 var stock = {
     updateButton : function () {
+        $('#stock-price-table').children().remove();
+
         // get the values of input fields
         var stockInput = $('input#input_stock_symbol').val();
         var startDate  = $('input#input_start_date').val();
@@ -26,6 +28,12 @@ var stock = {
             },
             dataType: 'json',
             success: function (response) {
+                $('#spinner').hide();
+
+                if (response.stock_prices.length > 1) {
+                    $('#stock-price-table').DataTable();
+                }
+
                 // // reset values in both table
                 // form_model_manager_master_table.children().remove();
                 // form_model_manager_data_table.children().remove();
@@ -71,7 +79,7 @@ var stock = {
 
             },
             error: function (response) {
-                // console.log(response);
+                console.log(response);
                 // $("#successMsgModal").children().remove();
                 // var error = response["responseJSON"]["result"];
                 // console.log(error);
@@ -91,9 +99,8 @@ var stock = {
                 // $('#inputTechnicalDescription').val('');
             },
             complete: function (response) {
-                // console.log("COMPLETED");
-                // $('#spinner').hide();
-                // console.log(response);
+                console.log("COMPLETED");
+                $('#spinner').hide();
             }
         })
     }
