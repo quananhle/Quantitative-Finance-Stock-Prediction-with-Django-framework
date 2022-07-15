@@ -6,7 +6,10 @@ var stock = {
     updateButton : function () {
         // check if price table is a Data Table
         if ($.fn.DataTable.isDataTable('#stock-price-table') ) {
+            $('#stock-price-table').DataTable().clear();
+            $('#stock-price-table').DataTable().destroy();
             $('#stock-price-table').children().remove();
+            $('#stock-price-table tbody').children().remove();
         }
 
         // get the values of input fields
@@ -41,35 +44,42 @@ var stock = {
                 if (response.stock_prices.length > 1) {
                     $('#stock-price-table').DataTable();
 
-                    // let master_template; let data_template;
+                    $('#stock-price-table tbody').children().remove();
+                    // Reset datatable every time new input entered
+                    $('#stock-price-table').DataTable().clear();
+                    // // Hide button every time new input entered
+                    // $('#print_button').hide();
+    
+                    // If table is initialized
+                    if ($.fn.DataTable.isDataTable('#stock-price-table')){
+                        // Destroy existing table
+                        $('#stock-price-table').DataTable().destroy();
+                    }
 
-                    // for (let i = 0; i < object.length; i++) {
-                    //     master_template += "<tr>"; data_template += "<tr>";
-                    //     master_template += "<td>" + object[i][0]  + "</td>";    // model id
-                    //     master_template += "<td>" + object[i][1]  + "</td>";    // keypart
-                    //     master_template += "<td>" + object[i][2]  + "</td>";    // mask rule
-                    //     master_template += "<td>" + object[i][3]  + "</td>";    // category id
-                    //     master_template += "<td>" + object[i][4]  + "</td>";    // plant code
-                    //     master_template += "<td>" + object[i][5]  + "</td>";    // sap changed date
-                    //     data_template   += "<td>" + object[i][6]  + "</td>";    // spanish description
-                    //     data_template   += "<td>" + object[i][7]  + "</td>";    // fracc nico
-                    //     data_template   += "<td>" + object[i][8]  + "</td>";    // uom value
-                    //     data_template   += "<td>" + object[i][9]  + "</td>";    // hst code
-                    //     data_template   += "<td>" + object[i][10] + "</td>";    // fracc digit
-                    //     data_template   += "<td>" + object[i][11] + "</td>";    // technnical description
-                    //     master_template += "</tr>"; data_template += "</tr>";   
-                    // }
-                    // form_model_manager_master_table.append(master_template);
-                    // form_model_manager_data_table.append(data_template);
+                    let stock_price_table_body    = $('#stock-price-table tbody');
+                    let price_template;
+
+                    for (let i = 0; i < object.length; i++) {
+                        price_template += "<tr>";
+                        price_template += "<td>" + object[i][0]  + "</td>";    // company
+                        price_template += "<td>" + object[i][6]  + "</td>";    // date
+                        price_template += "<td>" + object[i][1]  + "</td>";    // open
+                        price_template += "<td>" + object[i][2]  + "</td>";    // high
+                        price_template += "<td>" + object[i][3]  + "</td>";    // low
+                        price_template += "<td>" + object[i][4]  + "</td>";    // close
+                        price_template += "<td>" + object[i][5]  + "</td>";    // volume
+                        price_template += "</tr>";  
+                    }
+                    stock_price_table_body.append(price_template);
                 }
                 else {
                     $('#price-company').html(object[0][0]);
-                    $('#price-date'   ).html(object[0][1]);
-                    $('#price-open'   ).html(object[0][2]);
-                    $('#price-high'   ).html(object[0][3]);
-                    $('#price-low'    ).html(object[0][4]);
-                    $('#price-close'  ).html(object[0][5]);
-                    $('#price-volume' ).html(object[0][6]);
+                    $('#price-open'   ).html(object[0][1]);
+                    $('#price-high'   ).html(object[0][2]);
+                    $('#price-low'    ).html(object[0][3]);
+                    $('#price-close'  ).html(object[0][4]);
+                    $('#price-volume' ).html(object[0][5]);
+                    $('#price-date'   ).html(object[0][6]);
                 }
 
 
