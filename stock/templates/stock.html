@@ -8,12 +8,18 @@
         <div class="container-fluid">
             <head>
                 <div>
-                    <header>Quantitative Finance</header>
+                    <header>
+                        <h1>
+                            Quantitative Finance
+                        </h1>
+                    </header>
                 </div>
             </head>
             <body class="row">
                 <div>
-                    This is a finance application about quantitative trading and stock!
+                    <h2>
+                        This is a finance application about quantitative trading and stock!
+                    </h2>
                 </div>
                 <div class="col-md-5" style="display:flex; white-space:nowrap; align-items: center;">
                     <h3 for="sn_input" style="font-size: 18px; margin-right:20px; margin-top: 5px;"><b>Stock Symbol: </b></h3>
@@ -23,10 +29,6 @@
                         <div class="loader form-group mx-sm-2 mb-1" id="spinner"></div>
                     </div>
                 </div>
-                <!-- <div class="form-group col-md-4">
-                    <label for="inputMaskRule">Stock Symbol</label>
-                    <input type="text" style="color: #000000;" class="form-control" id="inputMaskRule" placeholder="Enter Stock Symbol Here">
-                </div> -->
                 <div class="col-md-12 " style="height: 0.5cm; visibility: hidden;"></div>
                 <hr style="border: 0; height: 2px; width:90%; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
                 <div class="col-md-12 " style="height: 0.5cm; visibility: hidden;"></div>   
@@ -55,32 +57,34 @@
                 <header><h2>Main Data</h2></header>
                 <div class="form-row" method="POST">
                     {% csrf_token %} 
-                    <div class="form-group col-md-4">
+                    <!-- <div class="form-group col-md-4">
                         <label for="inputKeypart">Keypart</label>
                         <select class="form-control" style="color: #000000;" id="inputKeypart" name="inputKeypart">
                             <option value="" disabled selected>Select keypart</option>
                             <option value="1">On</option>
                             <option value="0">Off</option>
                         </select>
+                    </div> -->
+                    <div class="form-group col-md-4">
+                        <label for="inputMaskRule">Stock Symbol</label>
+                        <input type="text" style="color: #000000;" class="form-control" id="inputMaskRule" placeholder="Enter Stock Symbol Here">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputMaskRule">Mask Rule</label>
-                        <input type="text" style="color: #000000;" class="form-control" id="inputMaskRule" placeholder="Enter Mask Rule Here">
+                        <label for="start">Start date:</label>
+                        <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31">
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputCategoryID">Category ID</label>
-                        <input type="text" style="color: #000000;" class="form-control" id="inputCategoryID" placeholder="Enter Category ID Here">
-                    </div>
+
                 </div>
                 <table class="table table-hover tbl-font table-striped table-bordered table-sm align-act-buttons" id="form-tracking-master-table">
                     <thead>
                         <tr>
-                            <th scope="col">Model ID</th>
-                            <th scope="col">Keypart</th>
-                            <th scope="col">Mask Rule</th>
-                            <th scope="col">Category ID</th>
-                            <th scope="col">Plant Code</th>
-                            <th scope="col">SAP Changed Date</th>                                         
+                            <th scope="col">Company </th>
+                            <th scope="col">Date    </th>
+                            <th scope="col">Open    </th>
+                            <th scope="col">High    </th>
+                            <th scope="col">Low     </th>
+                            <th scope="col">Close   </th>
+                            <th scope="col">Volume  </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,6 +94,7 @@
                                 <td> {{ mask_rule   }}</td>
                                 <td> {{ category_id }}</td>
                                 <td> {{ plant       }}</td>
+                                <td> {{ sap_changed }}</td>
                                 <td> {{ sap_changed }}</td>
                         </tr>                                   
                     </tbody>
@@ -108,6 +113,42 @@
         </div>
     </main>
 </html>
+
+
+<style>
+    .loader {
+        display: none;
+        border-top: 4px solid blue;
+        border-right: 4px solid green;
+        border-bottom: 4px solid red;
+        border-left: 4px solid #ffc000;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        animation: spin 2s linear infinite;
+        margin: auto;
+    }
+        
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        
+    }
+
+    /* label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    input, label {
+        margin: .4rem 0;
+    } */
+
+</style>
+
+
+
+
 <script src="{% static 'apps/price_calculator/priceCalculator.js' %}"></script>
 <script type="text/javascript">
     $("#footer").html('© ' + new Date().getFullYear());
