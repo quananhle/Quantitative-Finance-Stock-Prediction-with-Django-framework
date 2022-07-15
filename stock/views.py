@@ -43,7 +43,6 @@ class StockPriceCalculator (View):
 
         sp_params = DataLayer().createparams(f"{''}")
         stock_get_info_result = DataLayer().runfunction(db_conn,'main_stock_get_info_fn', sp_params)
-        print (stock_get_info_result)
         #stock detailed info
         '''
         stock_list = list()
@@ -83,6 +82,7 @@ class StockPriceCalculator (View):
         return render(self.request, self.template_name, context)
 
     def post(self, *args, **kwargs):
+        data = self.request.POST
         error = {}
         context = {}
         db_obj = DataLayer()
@@ -92,10 +92,16 @@ class StockPriceCalculator (View):
             error.update(
                 { 'errorMsg': 'There is a problem with Database connection, Call IT' } 
             ) 
-            return render(self.request, self.template_name, error) 
+            return render(self.request, self.template_name, error)
+
+        symbol = data.get('stock_symbol').strip().upper()
+        sdate  = data.get('start_date').strip().upper()  
+        edate  = data.get('end_date').strip().upper()
+
+        print (symbol, sdate, edate)
 
         sp_params = DataLayer().createparams(f"{''}")
-        stock_get_prices_result = DataLayer().runfunction(db_conn,'input_stock_get_prices', sp_params)
+        stock_get_prices_result = DataLayer().runfunction(db_conn,'main_stock_get_price_fn', sp_params)
         print (stock_get_prices_result)
 
         context.update({
