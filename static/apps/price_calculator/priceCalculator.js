@@ -4,7 +4,10 @@ console.log(tkn);
 
 var stock = {
     updateButton : function () {
-        $('#stock-price-table').children().remove();
+        // check if price table is a Data Table
+        if ($.fn.DataTable.isDataTable('#stock-price-table') ) {
+            $('#stock-price-table').children().remove();
+        }
 
         // get the values of input fields
         var stockInput = $('input#input_stock_symbol').val();
@@ -30,37 +33,48 @@ var stock = {
             success: function (response) {
                 $('#spinner').hide();
 
+                // get the data from runfunction(db_conn,'main_stock_get_price_fn', sp_params)
+                let object = response.stock_prices;
+
+                console.log(object);
+
                 if (response.stock_prices.length > 1) {
                     $('#stock-price-table').DataTable();
+
+                    // let master_template; let data_template;
+
+                    // for (let i = 0; i < object.length; i++) {
+                    //     master_template += "<tr>"; data_template += "<tr>";
+                    //     master_template += "<td>" + object[i][0]  + "</td>";    // model id
+                    //     master_template += "<td>" + object[i][1]  + "</td>";    // keypart
+                    //     master_template += "<td>" + object[i][2]  + "</td>";    // mask rule
+                    //     master_template += "<td>" + object[i][3]  + "</td>";    // category id
+                    //     master_template += "<td>" + object[i][4]  + "</td>";    // plant code
+                    //     master_template += "<td>" + object[i][5]  + "</td>";    // sap changed date
+                    //     data_template   += "<td>" + object[i][6]  + "</td>";    // spanish description
+                    //     data_template   += "<td>" + object[i][7]  + "</td>";    // fracc nico
+                    //     data_template   += "<td>" + object[i][8]  + "</td>";    // uom value
+                    //     data_template   += "<td>" + object[i][9]  + "</td>";    // hst code
+                    //     data_template   += "<td>" + object[i][10] + "</td>";    // fracc digit
+                    //     data_template   += "<td>" + object[i][11] + "</td>";    // technnical description
+                    //     master_template += "</tr>"; data_template += "</tr>";   
+                    // }
+                    // form_model_manager_master_table.append(master_template);
+                    // form_model_manager_data_table.append(data_template);
+                }
+                else {
+                    $('#price-company').html(object[0][0]);
+                    $('#price-date'   ).html(object[0][1]);
+                    $('#price-open'   ).html(object[0][2]);
+                    $('#price-high'   ).html(object[0][3]);
+                    $('#price-low'    ).html(object[0][4]);
+                    $('#price-close'  ).html(object[0][5]);
+                    $('#price-volume' ).html(object[0][6]);
                 }
 
-                // // reset values in both table
-                // form_model_manager_master_table.children().remove();
-                // form_model_manager_data_table.children().remove();
-                
-                // // get the data from runfunction(db_conn,'mfg_model_manager_update_fn', sp_params)
-                // let object = response.mm_info;
 
-                // let master_template; let data_template;
 
-                // for (let i = 0; i < object.length; i++) {
-                //     master_template += "<tr>"; data_template += "<tr>";
-                //     master_template += "<td>" + object[i][0]  + "</td>";    // model id
-                //     master_template += "<td>" + object[i][1]  + "</td>";    // keypart
-                //     master_template += "<td>" + object[i][2]  + "</td>";    // mask rule
-                //     master_template += "<td>" + object[i][3]  + "</td>";    // category id
-                //     master_template += "<td>" + object[i][4]  + "</td>";    // plant code
-                //     master_template += "<td>" + object[i][5]  + "</td>";    // sap changed date
-                //     data_template   += "<td>" + object[i][6]  + "</td>";    // spanish description
-                //     data_template   += "<td>" + object[i][7]  + "</td>";    // fracc nico
-                //     data_template   += "<td>" + object[i][8]  + "</td>";    // uom value
-                //     data_template   += "<td>" + object[i][9]  + "</td>";    // hst code
-                //     data_template   += "<td>" + object[i][10] + "</td>";    // fracc digit
-                //     data_template   += "<td>" + object[i][11] + "</td>";    // technnical description
-                //     master_template += "</tr>"; data_template += "</tr>";   
-                // }
-                // form_model_manager_master_table.append(master_template);
-                // form_model_manager_data_table.append(data_template);
+
 
                 // $('#inputKeypart')             .attr("placeholder", object[0][1]).val('');
                 // $('#inputMaskRule')            .val('');               

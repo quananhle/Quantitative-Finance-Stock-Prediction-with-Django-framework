@@ -103,7 +103,16 @@ class StockPriceCalculator (View):
 
         sp_params = DataLayer().createparams(f"{symbol},{sdate},{edate}")
         stock_get_prices_result = DataLayer().runfunction(db_conn,'main_stock_get_price_fn', sp_params)
-        print (stock_get_prices_result)
+
+        keys = {'stock':[], 'open':[], 'high':[], 'low':[], 'close':[], 'volume':[], 'date':[]}
+        for i in range (len(stock_get_prices_result)):
+            keys['stock'].append(stock_get_prices_result[i][0])
+            keys['open'].append(stock_get_prices_result[i][1])
+            keys['high'].append(stock_get_prices_result[i][2])
+            keys['low'].append(stock_get_prices_result[i][3])
+            keys['close'].append(stock_get_prices_result[i][4])
+            keys['volume'].append(stock_get_prices_result[i][5])
+            keys['date'].append(stock_get_prices_result[i][6])
 
         context.update({
             'stock_prices' : stock_get_prices_result

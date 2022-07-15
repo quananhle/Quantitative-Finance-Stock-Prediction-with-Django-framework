@@ -96,13 +96,13 @@
                         </thead>
                         <tbody>
                             <tr>
-                                    <td> {% if stock %}  {{stock}}  {% else %} &nbsp {% endif %}</td>
-                                    <td> {% if date %}   {{date}}   {% else %} &nbsp {% endif %}</td>
-                                    <td> {% if open %}   {{open}}   {% else %} &nbsp {% endif %}</td>
-                                    <td> {% if high %}   {{high}}   {% else %} &nbsp {% endif %}</td>
-                                    <td> {% if low %}    {{low}}    {% else %} &nbsp {% endif %}</td>
-                                    <td> {% if close %}  {{close}}  {% else %} &nbsp {% endif %}</td>
-                                    <td> {% if volume %} {{volume}} {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-company"> {% if stock %}  {{stock}}  {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-date"   > {% if date %}   {{date}}   {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-open"   > {% if open %}   {{open}}   {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-high"   > {% if high %}   {{high}}   {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-low"    > {% if low %}    {{low}}    {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-close"  > {% if close %}  {{close}}  {% else %} &nbsp {% endif %}</td>
+                                    <td id="price-volume" > {% if volume %} {{volume}} {% else %} &nbsp {% endif %}</td>
                             </tr>                                   
                         </tbody>
                     </table>  
