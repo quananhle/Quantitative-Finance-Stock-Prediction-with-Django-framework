@@ -54,55 +54,59 @@
                     </table> 
                 </div>
                 {% endif %}
-                <header><h2>Main Data</h2></header>
-                <div class="form-row" method="POST">
-                    {% csrf_token %} 
-                    <!-- <div class="form-group col-md-4">
-                        <label for="inputKeypart">Keypart</label>
-                        <select class="form-control" style="color: #000000;" id="inputKeypart" name="inputKeypart">
-                            <option value="" disabled selected>Select keypart</option>
-                            <option value="1">On</option>
-                            <option value="0">Off</option>
-                        </select>
-                    </div> -->
-                    <div class="form-group col-md-4">
-                        <label for="input_stock_symbol">Stock Symbol</label>
-                        <input type="text" style="color: #000000;" class="form-control" id="input_stock_symbol" placeholder="Enter Stock Symbol Here">
+                <div  method="POST">
+                    <header><h2>Main Data</h2></header>
+                    <div class="form-row">
+                        {% csrf_token %} 
+                        <!-- <div class="form-group col-md-4">
+                            <label for="inputKeypart">Keypart</label>
+                            <select class="form-control" style="color: #000000;" id="inputKeypart" name="inputKeypart">
+                                <option value="" disabled selected>Select keypart</option>
+                                <option value="1">On</option>
+                                <option value="0">Off</option>
+                            </select>
+                        </div> -->
+                        <div class="form-group col-md-4">
+                            <label for="input_stock_symbol">Stock Symbol</label>
+                            <input type="text" style="color: #000000;" class="form-control" id="input_stock_symbol" placeholder="Enter Stock Symbol Here">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="input_start_date">Start date:</label>
+                            <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_start_date">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="input_end_date">End date:</label>
+                            <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_end_date">
+                        </div>
+                        <div class="form-group col-md-6" style="margin-top: 25px">
+                            <button type="submit" class="btn btn-primary" id="submit_button" style="background-color: #00CC00;">Submit</button> 
+                        </div>
                     </div>
-                    <div class="form-group col-md-1">
-                        <label for="start">Start date:</label>
-                        <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_start_date">
-                    </div>
-                    <div class="form-group col-md-1">
-                        <label for="start">End date:</label>
-                        <input type="date" id="start" name="trip-start" value="2022-07-22" min="2018-01-01" max="2022-12-31" id="input_end_date">
-                    </div>
+                    <table class="table table-hover tbl-font table-striped table-bordered table-sm align-act-buttons" id="form-tracking-master-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Company </th>
+                                <th scope="col">Date    </th>
+                                <th scope="col">Open    </th>
+                                <th scope="col">High    </th>
+                                <th scope="col">Low     </th>
+                                <th scope="col">Close   </th>
+                                <th scope="col">Volume  </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                    <td> {% if stock %}  {{stock}}  {% else %} &nbsp {% endif %}</td>
+                                    <td> {% if date %}   {{date}}   {% else %} &nbsp {% endif %}</td>
+                                    <td> {% if open %}   {{open}}   {% else %} &nbsp {% endif %}</td>
+                                    <td> {% if high %}   {{high}}   {% else %} &nbsp {% endif %}</td>
+                                    <td> {% if low %}    {{low}}    {% else %} &nbsp {% endif %}</td>
+                                    <td> {% if close %}  {{close}}  {% else %} &nbsp {% endif %}</td>
+                                    <td> {% if volume %} {{volume}} {% else %} &nbsp {% endif %}</td>
+                            </tr>                                   
+                        </tbody>
+                    </table>  
                 </div>
-                <table class="table table-hover tbl-font table-striped table-bordered table-sm align-act-buttons" id="form-tracking-master-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Company </th>
-                            <th scope="col">Date    </th>
-                            <th scope="col">Open    </th>
-                            <th scope="col">High    </th>
-                            <th scope="col">Low     </th>
-                            <th scope="col">Close   </th>
-                            <th scope="col">Volume  </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                                <td> {{ model_id    }}</td>
-                                <td> {{ keypart     }}</td>
-                                <td> {{ mask_rule   }}</td>
-                                <td> {{ category_id }}</td>
-                                <td> {{ plant       }}</td>
-                                <td> {{ sap_changed }}</td>
-                                <td> {{ sap_changed }}</td>
-                        </tr>                                   
-                    </tbody>
-                </table>  
-
                 <div class="col-md-12 " style="height: 0.5cm; visibility: hidden;"></div>
                 <!-- <hr style="border: 0; width:75%; height: 1px;  background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);"> -->
                 <hr style="border: 0; height: 2px; width:90%; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -155,5 +159,25 @@
 <script src="{% static 'apps/price_calculator/priceCalculator.js' %}"></script>
 <script type="text/javascript">
     $("#footer").html('© ' + new Date().getFullYear());
+
+    $(document).ready(function () {
+        $('#sn_tracking_table').DataTable();
+    });
+    // $("#sn_input").keypress(function(event ) {
+    //     var keycode = (event.keyCode ? event.keyCode : event.which);
+    //     if (keycode == 13) {
+    //         event.preventDefault();
+    //         stock.loadData();
+    //     }
+    // });
+    $("#submit_button").click(function(event) {
+        event.preventDefault();
+        stock.loadData();
+    });
+    // $("#confirm-button").click(function(event) {
+    //     console.log("Confirm Button pressed!");
+    //     event.preventDefault();
+    //     csns.confirm();
+    // });
 </script>  
 {% endblock content %}
