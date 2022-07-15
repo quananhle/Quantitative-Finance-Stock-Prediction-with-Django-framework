@@ -13,15 +13,15 @@ class StockPriceCalculator (View):
     def dispatch(self, request) -> HttpResponse:
         if request.method == 'GET':
             get_data = request.GET
-            if get_data.get('function') == 'populate()':
-                return self.populate()
+            if get_data.get('function') == 'submit()':
+                return self.submit()
             else:
                 return self.get()
         if request.method == 'POST':
             post_data = request.POST
             if post_data.get('function'):
-                if post_data.get('function') == 'confirm()':
-                    return self.confirm()
+                if post_data.get('function') == 'submit()':
+                    return self.submit()
                 elif post_data.get('function') == 'approval()':
                     return self.approval()
                 else:
@@ -81,7 +81,7 @@ class StockPriceCalculator (View):
         })
         return render(self.request, self.template_name, context)
 
-    def post(self, *args, **kwargs):
+    def submit(self, *args, **kwargs):
         data = self.request.POST
         error = {}
         context = {}
@@ -100,7 +100,7 @@ class StockPriceCalculator (View):
 
         print (symbol, sdate, edate)
 
-        sp_params = DataLayer().createparams(f"{''}")
+        sp_params = DataLayer().createparams(f"{symbol},{sdate},{edate}")
         stock_get_prices_result = DataLayer().runfunction(db_conn,'main_stock_get_price_fn', sp_params)
         print (stock_get_prices_result)
 

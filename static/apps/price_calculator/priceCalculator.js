@@ -18,6 +18,7 @@ var stock = {
             url: 'stock-price',
             // send over data collected from front end to views.py
             data: {
+                'function'     : 'submit()',
                 'stock_symbol' : stockInput,
                 'start_date'   : startDate,
                 'end_date'     : endDate,
