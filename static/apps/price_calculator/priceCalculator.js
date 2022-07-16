@@ -31,50 +31,35 @@ var stock = {
                 // get the data from runfunction(db_conn,'main_stock_get_price_fn', sp_params)
                 let object = response.stock_prices;
 
-                console.log(object);
+                $('#stock-price-table').DataTable();
+                $("#stock-price-table-tbody").children().remove();
+                // Reset datatable every time new input entered
+                $("#stock-price-table").DataTable().clear();
 
-                if (response.stock_prices.length > 1) {
-                    $('#stock-price-table').DataTable();
+                // If table is initialized
+                if ($.fn.DataTable.isDataTable('#stock-price-table')){
+                    // Destroy existing table
+                    $('#stock-price-table').DataTable().destroy();
+                }                    
 
-                    $("#stock-price-table tbody").children().remove();
-                    $("#stock-price-table-tbody").children().remove();
-                    // Reset datatable every time new input entered
-                    $("#stock-price-table").DataTable().clear();
+                let stock_price_table_body = $('#stock-price-table tbody');
+                let price_template;
 
-                    // If table is initialized
-                    if ($.fn.DataTable.isDataTable('#stock-price-table')){
-                        // Destroy existing table
-                        $('#stock-price-table').DataTable().destroy();
-                    }                    
-
-                    let stock_price_table_body    = $('#stock-price-table tbody');
-                    let price_template;
-
-                    for (let i = 0; i < object.length; i++) {
-                        price_template += "<tr>";
-                        price_template += "<td>" + object[i][0]  + "</td>";    // company
-                        price_template += "<td>" + object[i][6]  + "</td>";    // date
-                        price_template += "<td>" + object[i][1]  + "</td>";    // open
-                        price_template += "<td>" + object[i][2]  + "</td>";    // high
-                        price_template += "<td>" + object[i][3]  + "</td>";    // low
-                        price_template += "<td>" + object[i][4]  + "</td>";    // close
-                        price_template += "<td>" + object[i][5]  + "</td>";    // volume
-                        price_template += "</tr>";  
-                    }
-                    stock_price_table_body.append(price_template);
-
-                    // Show 5 entries instead of 10 as default
-                    $('#stock-price-table').DataTable({pageLength: 5});
+                for (let i = 0; i < object.length; i++) {
+                    price_template += "<tr>";
+                    price_template += "<td>" + object[i][0]  + "</td>";    // company
+                    price_template += "<td>" + object[i][6]  + "</td>";    // date
+                    price_template += "<td>" + object[i][1]  + "</td>";    // open
+                    price_template += "<td>" + object[i][2]  + "</td>";    // high
+                    price_template += "<td>" + object[i][3]  + "</td>";    // low
+                    price_template += "<td>" + object[i][4]  + "</td>";    // close
+                    price_template += "<td>" + object[i][5]  + "</td>";    // volume
+                    price_template += "</tr>";  
                 }
-                else {
-                    $('#price-company').html(object[0][0]);
-                    $('#price-open'   ).html(object[0][1]);
-                    $('#price-high'   ).html(object[0][2]);
-                    $('#price-low'    ).html(object[0][3]);
-                    $('#price-close'  ).html(object[0][4]);
-                    $('#price-volume' ).html(object[0][5]);
-                    $('#price-date'   ).html(object[0][6]);
-                }
+                stock_price_table_body.append(price_template);
+
+                // Show 5 entries instead of 10 as default
+                $('#stock-price-table').DataTable({pageLength: 10});
 
 
 
