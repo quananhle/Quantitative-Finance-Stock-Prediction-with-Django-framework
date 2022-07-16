@@ -44,12 +44,16 @@ var stock = {
                 if (response.stock_prices.length > 1) {
                     $('#stock-price-table').DataTable();
 
-                    $('#stock-price-table tbody').children().remove();
+                    // var stock_price_table      = $("#stock-price-table");
+                    // var stock_price_table_body = $("#stock-price-table tbody");
+                    // var stock_price_table_tbody = $("#stock-price-table-tbody");
+
+
+                    $("#stock-price-table tbody").children().remove();
+                    $("#stock-price-table-tbody").children().remove();
                     // Reset datatable every time new input entered
-                    $('#stock-price-table').DataTable().clear();
-                    // // Hide button every time new input entered
-                    // $('#print_button').hide();
-    
+                    $("#stock-price-table").DataTable().clear();
+
                     // If table is initialized
                     if ($.fn.DataTable.isDataTable('#stock-price-table')){
                         // Destroy existing table
@@ -71,6 +75,9 @@ var stock = {
                         price_template += "</tr>";  
                     }
                     stock_price_table_body.append(price_template);
+
+                    // Show 5 entries instead of 10 as default
+                    $('#stock-price-table').DataTable({pageLength: 5});
                 }
                 else {
                     $('#price-company').html(object[0][0]);

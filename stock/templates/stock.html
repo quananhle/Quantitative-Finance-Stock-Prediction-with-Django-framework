@@ -94,7 +94,7 @@
                                 <th scope="col">Volume  </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id='stock-price-table-tbody' class="scrollbar">
                             <tr>
                                     <td id="price-company"> {% if stock %}  {{stock}}  {% else %} &nbsp {% endif %}</td>
                                     <td id="price-date"   > {% if date %}   {{date}}   {% else %} &nbsp {% endif %}</td>
@@ -183,9 +183,9 @@
 <script type="text/javascript">
     $("#footer").html('© ' + new Date().getFullYear());
 
-    $(document).ready(function () {
-        $('#sn_tracking_table').DataTable();
-    });
+    // $(document).ready(function () {
+    //     $('#sn_tracking_table').DataTable();
+    // });
     // $("#sn_input").keypress(function(event ) {
     //     var keycode = (event.keyCode ? event.keyCode : event.which);
     //     if (keycode == 13) {
