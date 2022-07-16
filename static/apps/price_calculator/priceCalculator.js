@@ -4,19 +4,6 @@ console.log(tkn);
 
 var stock = {
     updateButton : function () {
-        // // If table is initialized
-        // if ($.fn.DataTable.isDataTable('#stock-price-table')){
-        //     // Destroy existing table
-        //     $('#stock-price-table').DataTable().destroy();
-        // }
-        // // check if price table is a Data Table
-        // if ($.fn.DataTable.isDataTable('#stock-price-table') ) {
-        //     $('#stock-price-table').DataTable().clear();
-        //     $('#stock-price-table').DataTable().destroy();
-        //     $('#stock-price-table').children().remove();
-        //     $('#stock-price-table tbody').children().remove();
-        // }
-
         // get the values of input fields
         var stockInput = $('input#input_stock_symbol').val();
         var startDate  = $('input#input_start_date').val();
@@ -53,6 +40,12 @@ var stock = {
                     $("#stock-price-table-tbody").children().remove();
                     // Reset datatable every time new input entered
                     $("#stock-price-table").DataTable().clear();
+
+                    // If table is initialized
+                    if ($.fn.DataTable.isDataTable('#stock-price-table')){
+                        // Destroy existing table
+                        $('#stock-price-table').DataTable().destroy();
+                    }                    
 
                     let stock_price_table_body    = $('#stock-price-table tbody');
                     let price_template;
