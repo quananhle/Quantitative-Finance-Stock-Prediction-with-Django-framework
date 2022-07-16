@@ -4,13 +4,18 @@ console.log(tkn);
 
 var stock = {
     updateButton : function () {
-        // check if price table is a Data Table
-        if ($.fn.DataTable.isDataTable('#stock-price-table') ) {
-            $('#stock-price-table').DataTable().clear();
-            $('#stock-price-table').DataTable().destroy();
-            $('#stock-price-table').children().remove();
-            $('#stock-price-table tbody').children().remove();
-        }
+        // // If table is initialized
+        // if ($.fn.DataTable.isDataTable('#stock-price-table')){
+        //     // Destroy existing table
+        //     $('#stock-price-table').DataTable().destroy();
+        // }
+        // // check if price table is a Data Table
+        // if ($.fn.DataTable.isDataTable('#stock-price-table') ) {
+        //     $('#stock-price-table').DataTable().clear();
+        //     $('#stock-price-table').DataTable().destroy();
+        //     $('#stock-price-table').children().remove();
+        //     $('#stock-price-table tbody').children().remove();
+        // }
 
         // get the values of input fields
         var stockInput = $('input#input_stock_symbol').val();
@@ -44,21 +49,10 @@ var stock = {
                 if (response.stock_prices.length > 1) {
                     $('#stock-price-table').DataTable();
 
-                    // var stock_price_table      = $("#stock-price-table");
-                    // var stock_price_table_body = $("#stock-price-table tbody");
-                    // var stock_price_table_tbody = $("#stock-price-table-tbody");
-
-
                     $("#stock-price-table tbody").children().remove();
                     $("#stock-price-table-tbody").children().remove();
                     // Reset datatable every time new input entered
                     $("#stock-price-table").DataTable().clear();
-
-                    // If table is initialized
-                    if ($.fn.DataTable.isDataTable('#stock-price-table')){
-                        // Destroy existing table
-                        $('#stock-price-table').DataTable().destroy();
-                    }
 
                     let stock_price_table_body    = $('#stock-price-table tbody');
                     let price_template;
