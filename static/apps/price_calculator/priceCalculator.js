@@ -61,47 +61,13 @@ var stock = {
                 // Show 5 entries instead of 10 as default
                 $('#stock-price-table').DataTable({pageLength: 10});
 
-
-
-
-
-                // $('#inputKeypart')             .attr("placeholder", object[0][1]).val('');
-                // $('#inputMaskRule')            .val('');               
-                // $('#inputCategoryID')          .val('');
-                // $('#inputSpanishDescription')  .val('');    
-                // $('#inputFraccNico')           .val('');    
-                // $('#inputUOMValue')            .val('');    
-                // $('#inputHstCode')             .val('');    
-                // $('#inputFraccDigits')         .val('');
-                // $('#inputTechnicalDescription').val('');
-
-                // // display success message
-                // $('#spinner').hide();
-                // $("#successMsgModal").append(successMessageModal);
-                // $('#successMsg').append("Updated Successfully");
+                // $('input#input_stock_symbol').val('');
 
             },
             error: function (response) {
                 console.log(response);
-                // $("#successMsgModal").children().remove();
-                // var error = response["responseJSON"]["result"];
-                // console.log(error);
-                // errorMessageBlock.append(errorMessageModal);
-                // $('#errorMsg').append(error);
-                // // clear input fields at failed.
-                // $('#inputKeypart')             .val('');
-                // $('#inputMaskRule')            .val('');
-                // $('#inputCategoryID')          .val('');
-                // $("#noInputPlantCode")         .val('');
-                // $("#noInputSAPChangedDate")    .val('');
-                // $('#inputSpanishDescription')  .val('');
-                // $('#inputFraccNico')           .val('');
-                // $('#inputUOMValue')            .val('');
-                // $('#inputHstCode')             .val('');
-                // $('#inputFraccDigits')         .val('');
-                // $('#inputTechnicalDescription').val('');
             },
-            complete: function (response) {
+            complete: function () {
                 console.log("COMPLETED");
                 $('#spinner').hide();
             }
